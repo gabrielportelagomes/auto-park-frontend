@@ -51,6 +51,7 @@ export default function SignUpPage() {
         };
 
         await signUp(body);
+
         setIsLoading(false);
         toast.success("Inscrito com sucesso! Por favor, faça o login.");
         navigate("/");
@@ -60,12 +61,12 @@ export default function SignUpPage() {
         } else {
           toast.error("Não foi possível fazer o cadastro!");
         }
-
-        setIsLoading(false);
       }
-    } else {
+
       setIsLoading(false);
+    } else {
       toast.error("As senhas devem ser iguais!");
+      setIsLoading(false);
     }
   }
 
