@@ -32,10 +32,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-		color: #fff;
-	background: #252525;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+	color: #000;
+	background: #ededed;
 }
 ol, ul {
 	list-style: none;
