@@ -1,8 +1,19 @@
 export function handleForm<T>(
   event: React.ChangeEvent<HTMLInputElement>,
-  form: T,
+  _form: T,
   setForm: React.Dispatch<React.SetStateAction<T>>
 ): void {
-  const { name, value } = event.target;
-  setForm({ ...form, [name]: value });
+  const { name, value, type, checked } = event.target;
+
+  if (type === "radio") {
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: checked ? value : undefined,
+    }));
+  } else {
+    setForm((prevForm) => ({
+      ...prevForm,
+      [name]: value,
+    }));
+  }
 }
