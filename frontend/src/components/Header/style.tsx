@@ -27,6 +27,7 @@ export const Logo = styled.h3`
   font-size: 3rem;
   letter-spacing: 0.2rem;
   color: white;
+  cursor: pointer;
 
   @media ${device.desktop} {
   }

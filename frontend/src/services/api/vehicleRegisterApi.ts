@@ -27,3 +27,13 @@ export async function postVehicleRegister(
 
   return response.data;
 }
+
+export async function getRegistersByDate(token: string | null, date: string) {
+  const response = await api.get(`/vehicle-register/date/${date}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data;
+}
