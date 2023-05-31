@@ -34,6 +34,9 @@ export default function Header() {
           <Style.MenuItem onClick={() => navigate("/registrar-entrada")}>
             Registrar entrada
           </Style.MenuItem>
+          <Style.MenuItem onClick={() => navigate("/registros/hoje")}>
+            Registros do dia
+          </Style.MenuItem>
           <Style.MenuItem onClick={logOut}>Sair</Style.MenuItem>
         </Style.Menu>
       )}

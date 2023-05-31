@@ -5,6 +5,7 @@ import SignUpPage from "../pages/SignUpPage";
 import SignInPage from "../pages/SignInPage";
 import HomePage from "../pages/HomePage";
 import CheckInPage from "../pages/CheckInPage";
+import RegistersByDate from "../pages/RegistersByDate";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,11 @@ export const router = createBrowserRouter([
   {
     path: "/registrar-entrada",
     element: <CheckInPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/registros/:date",
+    element: <RegistersByDate />,
     errorElement: <NotFoundPage />,
   },
   {
