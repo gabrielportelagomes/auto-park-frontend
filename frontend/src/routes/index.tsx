@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import NotFoundPage from "../pages/NotFoundPage";
 import SignUpPage from "../pages/SignUpPage";
 import SignInPage from "../pages/SignInPage";
+import HomePage from "../pages/HomePage";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,11 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <SignInPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/inicio",
+    element: <HomePage />,
     errorElement: <NotFoundPage />,
   },
   {

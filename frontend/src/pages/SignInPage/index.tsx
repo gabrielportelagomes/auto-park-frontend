@@ -82,7 +82,6 @@ export default function SignUpPage() {
             type="password"
             placeholder="Digite a senha"
             disabled={isLoading || signInLoading}
-            minLength={8}
             autoComplete="off"
             required
           />

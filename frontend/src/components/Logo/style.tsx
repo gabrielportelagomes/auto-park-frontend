@@ -1,6 +1,6 @@
 import { IoLocationSharp } from "react-icons/io5";
-
 import styled from "styled-components";
+
 import { device } from "../../assets/styles/breakpoints";
 
 export const Sidebar = styled.div`
