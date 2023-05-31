@@ -41,3 +41,26 @@ export const Content = styled.div`
   align-items: center;
   margin: 1rem;
 `;
+
+export const ButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+`;
+
+export const EntryButton = styled.button`
+  width: 12rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background: #1877f2;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+`;

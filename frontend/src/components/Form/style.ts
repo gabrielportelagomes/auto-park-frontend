@@ -58,3 +58,31 @@ export const LabelStyle = styled.label`
   font-size: 1.2rem;
   color: #000;
 `;
+
+export const Container = styled.div`
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-bottom: 0.5rem;
+`;
+
+export const Label = styled.label`
+  width: 100%;
+  text-align: left;
+  font-size: 1.2rem;
+`;
+
+export const RadioContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+`;
+
+export const RadioLabel = styled.label`
+  margin-right: 0.5rem;
+`;
+
+export const RadioInput = styled.input`
+  margin-right: 0.25rem;
+`;

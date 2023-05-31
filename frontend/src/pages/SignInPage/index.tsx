@@ -8,7 +8,7 @@ import InputForm from "../../components/Form/Input";
 import ButtonForm from "../../components/Form/Button";
 import { handleForm } from "../../utils/handleFormUtils";
 import { loadingButton } from "../../assets/styles/loading";
-import useSignIn from "../../hooks/api/useSinIn";
+import useSignIn from "../../hooks/api/useSignIn";
 import UserContext from "../../contexts/UserContext";
 
 interface FormData {

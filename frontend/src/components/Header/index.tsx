@@ -21,7 +21,7 @@ export default function Header() {
 
   return (
     <Style.HeaderContainer>
-      <Style.Logo>AutoPark</Style.Logo>
+      <Style.Logo onClick={() => navigate("/inicio")}>AutoPark</Style.Logo>
       <Style.HamburguerMenu
         onClick={() => setHamburguerMenuOpen(!hamburguerMenuOpen)}
       >
@@ -31,6 +31,9 @@ export default function Header() {
       </Style.HamburguerMenu>
       {hamburguerMenuOpen && (
         <Style.Menu>
+          <Style.MenuItem onClick={() => navigate("/registrar-entrada")}>
+            Registrar entrada
+          </Style.MenuItem>
           <Style.MenuItem onClick={logOut}>Sair</Style.MenuItem>
         </Style.Menu>
       )}

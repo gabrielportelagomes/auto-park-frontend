@@ -1,6 +1,6 @@
 import useAsync from "../useAsync";
 
-import * as vehicleRegister from "../../services/api/vehicleRegister";
+import * as vehicleRegister from "../../services/api/vehicleRegisterApi";
 import useToken from "../useToken";
 
 export default function useActiveRegisters() {
