@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import Register from "../Register";
 import * as Style from "./style";
 
@@ -30,6 +32,8 @@ export interface ActiveRegistersProps {
 export default function ActiveVehicles({
   activeRegisters,
 }: ActiveRegistersProps) {
+  const navigate = useNavigate();
+
   return (
     <Style.Container>
       <Style.Top>
@@ -41,6 +45,11 @@ export default function ActiveVehicles({
           return <Register key={register.id} {...register} />;
         })}
       </Style.Content>
+      <Style.ButtonContainer>
+        <Style.EntryButton onClick={() => navigate("/registrar-entrada")}>
+          Registrar entrada
+        </Style.EntryButton>
+      </Style.ButtonContainer>
     </Style.Container>
   );
 }
