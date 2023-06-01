@@ -32,7 +32,7 @@ export default function CheckOutPage() {
     const idNumber = Number(id);
     updateVehicleRegister(idNumber);
   }, []);
-  console.log(register);
+
   async function updateVehicleRegister(id: number) {
     try {
       const updatedRegister = await patchVehicleRegister(id);

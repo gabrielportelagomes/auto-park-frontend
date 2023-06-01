@@ -32,3 +32,16 @@ export async function postChange(token: string | null, body: ChangeDetails) {
 
   return response.data;
 }
+
+export async function postCashRegister(
+  token: string | null,
+  body: CashDetails[]
+) {
+  const response = await api.post("/cash-register", body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data;
+}

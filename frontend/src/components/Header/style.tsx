@@ -90,6 +90,7 @@ export const Menu = styled.ul`
   }
 
   @media ${device.desktop} {
+    width: 18rem;
     top: 6rem;
   }
 `;
@@ -99,13 +100,13 @@ export const MenuItem = styled.li`
   display: flex;
   padding: 0.8rem 1.2rem;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #000;
   border-radius: 0.4rem;
   cursor: pointer;
 
   @media ${device.desktop} {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   &:hover {
