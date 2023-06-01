@@ -31,12 +31,19 @@ export default function Header() {
       </Style.HamburguerMenu>
       {hamburguerMenuOpen && (
         <Style.Menu>
+          <Style.MenuItem onClick={() => navigate("/caixa/entrada")}>
+            Caixa - registrar entrada
+          </Style.MenuItem>
+          <Style.MenuItem onClick={() => navigate("/caixa/saida")}>
+            Caixa - registrar saída
+          </Style.MenuItem>
           <Style.MenuItem onClick={() => navigate("/registrar-entrada")}>
-            Registrar entrada
+            Veículos - registrar entrada
           </Style.MenuItem>
           <Style.MenuItem onClick={() => navigate("/registros/hoje")}>
-            Registros do dia
+            Veículos - registros do dia
           </Style.MenuItem>
+
           <Style.MenuItem onClick={logOut}>Sair</Style.MenuItem>
         </Style.Menu>
       )}
