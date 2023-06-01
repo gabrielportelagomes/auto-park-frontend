@@ -53,7 +53,7 @@ export default function CashItemPage() {
         ...form,
         value: parseInt(form.value.replace(/[^\d]+/g, "")),
       };
-    
+
       await postCashItem(body);
       setIsLoading(false);
       toast.success("Registro realizado com sucesso!");
@@ -82,7 +82,6 @@ export default function CashItemPage() {
           type="text"
           placeholder="R$ 0,00"
           disabled={isLoading || cashItemLoading}
-          minLength={7}
           autoComplete="off"
           required
         />
