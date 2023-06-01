@@ -6,6 +6,7 @@ import SignInPage from "../pages/SignInPage";
 import HomePage from "../pages/HomePage";
 import CheckInPage from "../pages/CheckInPage";
 import RegistersByDate from "../pages/RegistersByDate";
+import CheckOutPage from "../pages/CheckOutPage";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,11 @@ export const router = createBrowserRouter([
   {
     path: "/registros/:date",
     element: <RegistersByDate />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/registrar-saida/:id",
+    element: <CheckOutPage />,
     errorElement: <NotFoundPage />,
   },
   {
