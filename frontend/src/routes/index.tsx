@@ -8,6 +8,7 @@ import CheckInPage from "../pages/CheckInPage";
 import RegistersByDate from "../pages/RegistersByDate";
 import CheckOutPage from "../pages/CheckOutPage";
 import CashRegister from "../pages/CashRegister";
+import RegistersHistory from "../pages/RegistersHistory";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ export const router = createBrowserRouter([
   {
     path: "/registros/:date",
     element: <RegistersByDate />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/registros-historico",
+    element: <RegistersHistory />,
     errorElement: <NotFoundPage />,
   },
   {

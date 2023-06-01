@@ -27,10 +27,12 @@ export interface RegisterProps {
 
 export interface VehicleRegistersProps {
   registersByDate: RegisterProps[];
+  date: boolean;
 }
 
 export default function VehicleRegisters({
   registersByDate,
+  date,
 }: VehicleRegistersProps) {
   const firstEntry = registersByDate.find((register) => register.entry_time);
   const entryTime = firstEntry ? firstEntry.entry_time : "N/A";
@@ -39,7 +41,13 @@ export default function VehicleRegisters({
   return (
     <Style.Container>
       <Style.Top>
-        <Style.Title>Registros de veículos do dia: {formattedDate}</Style.Title>
+        {date ? (
+          <Style.Title>
+            Registros de veículos do dia: {formattedDate}
+          </Style.Title>
+        ) : (
+          <Style.Title>Histórico de registros:</Style.Title>
+        )}
       </Style.Top>
       <Style.Content>
         {registersByDate.map((register) => {
