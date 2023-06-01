@@ -25,7 +25,11 @@ export const Top = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+
+  @media ${device.desktop} {
+    font-size: 1.3rem;
+  }
 `;
 
 export const Content = styled.div`
