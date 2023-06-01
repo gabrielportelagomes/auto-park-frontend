@@ -13,7 +13,7 @@ Front-end para a aplicação AutoPark, um gerenciador de estacionamento.
 npm i
 ```
 
-3. Certifique-se de que o back-end está em funcionamento [(AutoPark-back)](https://github.com/gabrielportelagomes/Drivent-backend)
+3. Certifique-se de que o back-end está em funcionamento [(AutoPark-back)](https://github.com/gabrielportelagomes/auto-park-backend)
 4. Configure o arquivo `.env` usando como referência o arquivo `.env.example` 
 5. Execute o fron-end no ambiente de desenvolvimento:
 
