@@ -7,7 +7,7 @@ import LoadingPage from "../../components/LoadingPage";
 import useCashBalance from "../../hooks/api/useCashBalance";
 import * as Style from "./style";
 
-export default function CashRegister() {
+export default function CashRegisterPage() {
   const navigate = useNavigate();
   const { cashBalance } = useCashBalance();
   const { type } = useParams();

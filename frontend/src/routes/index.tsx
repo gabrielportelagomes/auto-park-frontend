@@ -5,10 +5,10 @@ import SignUpPage from "../pages/SignUpPage";
 import SignInPage from "../pages/SignInPage";
 import HomePage from "../pages/HomePage";
 import CheckInPage from "../pages/CheckInPage";
-import RegistersByDate from "../pages/RegistersByDate";
+import RegistersByDatePage from "../pages/RegistersByDatePage";
 import CheckOutPage from "../pages/CheckOutPage";
-import CashRegister from "../pages/CashRegister";
-import RegistersHistory from "../pages/RegistersHistory";
+import CashRegisterPage from "../pages/CashRegisterPage";
+import RegistersHistoryPage from "../pages/RegistersHistoryPage";
 
 export const router = createBrowserRouter([
   {
@@ -33,12 +33,12 @@ export const router = createBrowserRouter([
   },
   {
     path: "/registros/:date",
-    element: <RegistersByDate />,
+    element: <RegistersByDatePage />,
     errorElement: <NotFoundPage />,
   },
   {
     path: "/registros-historico",
-    element: <RegistersHistory />,
+    element: <RegistersHistoryPage />,
     errorElement: <NotFoundPage />,
   },
   {
@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/caixa/:type",
-    element: <CashRegister />,
+    element: <CashRegisterPage />,
     errorElement: <NotFoundPage />,
   },
   {
