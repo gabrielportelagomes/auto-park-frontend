@@ -50,7 +50,7 @@ export default function Header() {
             Veículos - registros do dia
           </Style.MenuItem>
           <Style.MenuItem onClick={() => navigate("/registros-historico")}>
-            Veículos - hitórico
+            Veículos - histórico
           </Style.MenuItem>
           <Style.MenuItem onClick={logOut}>Sair</Style.MenuItem>
         </Style.Menu>
