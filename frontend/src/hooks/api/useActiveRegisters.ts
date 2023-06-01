@@ -10,13 +10,13 @@ export default function useActiveRegisters() {
     data: activeRegisters,
     loading: activeRegistersLoading,
     error: activeRegistersError,
-    act: getactiveRegisters,
+    act: getActiveRegisters,
   } = useAsync(() => vehicleRegister.getActiveRegisters(token));
 
   return {
     activeRegisters,
     activeRegistersLoading,
     activeRegistersError,
-    getactiveRegisters,
+    getActiveRegisters,
   };
 }

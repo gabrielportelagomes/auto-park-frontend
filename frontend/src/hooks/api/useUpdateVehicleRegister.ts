@@ -7,6 +7,7 @@ export default function useUpdateVehicleRegister() {
   const token = useToken();
 
   const {
+    data: updateVehicleRegister,
     loading: updateVehicleRegisterLoading,
     error: updateVehicleRegisterError,
     act: patchVehicleRegister,
@@ -15,6 +16,7 @@ export default function useUpdateVehicleRegister() {
   });
 
   return {
+    updateVehicleRegister,
     updateVehicleRegisterLoading,
     updateVehicleRegisterError,
     patchVehicleRegister,

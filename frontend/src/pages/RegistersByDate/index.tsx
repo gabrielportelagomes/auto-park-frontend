@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import dayjs from "dayjs";
@@ -10,6 +10,7 @@ import useRegistersByDate from "../../hooks/api/useRegistersByDate";
 import VehicleRegisters from "../../components/VehicleRegisters";
 
 export default function RegistersByDate() {
+  const navigate = useNavigate();
   const { getRegistersByDate, registersByDate } = useRegistersByDate();
   const { date } = useParams();
 
@@ -29,8 +30,10 @@ export default function RegistersByDate() {
     } catch (error: any) {
       if (error.response.data.message) {
         toast.error(error.response.data.message);
+        navigate("/*");
       } else {
         toast.error("Não foi possível recuperar os registros!");
+        navigate("/inicio");
       }
     }
   }
@@ -42,7 +45,7 @@ export default function RegistersByDate() {
   return (
     <Style.PageContainer>
       <Header />
-      <VehicleRegisters registersByDate={registersByDate} />
+      <VehicleRegisters registersByDate={registersByDate} date={true} />
     </Style.PageContainer>
   );
 }

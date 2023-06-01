@@ -38,6 +38,16 @@ export async function getRegistersByDate(token: string | null, date: string) {
   return response.data;
 }
 
+export async function getAllRegisters(token: string | null) {
+  const response = await api.get("/vehicle-register/all", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data;
+}
+
 export async function patchVehicleRegister(token: string | null, id: number) {
   const response = await api.patch(`/vehicle-register/${id}`, null, {
     headers: {

@@ -55,7 +55,7 @@ export const Details = styled.h3`
   font-size: 0.8rem;
   color: #fff;
   text-align: center;
-  margin-top: 1rem;
+  margin: 1rem 0;
 
   @media ${device.desktop} {
     font-size: 1.5rem;
