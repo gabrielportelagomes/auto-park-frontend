@@ -24,20 +24,18 @@ export interface Register {
 export default function CheckOutPage() {
   const navigate = useNavigate();
   const { cashBalance } = useCashBalance();
-  const { patchVehicleRegister } = useUpdateVehicleRegister();
+  const { patchVehicleRegister, updateVehicleRegister } =
+    useUpdateVehicleRegister();
   const { id } = useParams();
-  const [register, setRegister] = useState<Register>();
 
   useEffect(() => {
     const idNumber = Number(id);
-    updateVehicleRegister(idNumber);
+    newVehicleRegister(idNumber);
   }, []);
 
-  async function updateVehicleRegister(id: number) {
+  async function newVehicleRegister(id: number) {
     try {
-      const updatedRegister = await patchVehicleRegister(id);
-      setRegister(updatedRegister);
-      toast.success("Registro atualizado com sucesso!");
+      await patchVehicleRegister(id);
     } catch (error: any) {
       if (error.response.data.message) {
         toast.error(error.response.data.message);
@@ -49,7 +47,7 @@ export default function CheckOutPage() {
     }
   }
 
-  if (!cashBalance || !register) {
+  if (!cashBalance || !updateVehicleRegister) {
     return <LoadingPage />;
   }
 
@@ -59,7 +57,7 @@ export default function CheckOutPage() {
       <Style.Content>
         <Style.Title>Valor a pagar:</Style.Title>
         <Style.TotalAmount>
-          {(register.paid_amount / 100).toLocaleString("pt-br", {
+          {(updateVehicleRegister.paid_amount / 100).toLocaleString("pt-br", {
             style: "currency",
             currency: "BRL",
           })}
@@ -67,7 +65,7 @@ export default function CheckOutPage() {
       </Style.Content>
       <InflowCashRegister
         cashItems={cashBalance}
-        total_price={register.paid_amount}
+        total_price={updateVehicleRegister.paid_amount}
       />
     </Style.PageContainer>
   );

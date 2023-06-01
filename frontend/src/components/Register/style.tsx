@@ -83,6 +83,7 @@ export const ExitButton = styled.button<{ display: string | null }>`
   font-weight: 700;
   color: #fff;
   margin-top: 1rem;
+  cursor: pointer;
 
   @media ${device.desktop} {
     height: 1.7rem;
