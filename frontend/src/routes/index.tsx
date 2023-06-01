@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage";
 import CheckInPage from "../pages/CheckInPage";
 import RegistersByDate from "../pages/RegistersByDate";
 import CheckOutPage from "../pages/CheckOutPage";
+import CashRegister from "../pages/CashRegister";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,11 @@ export const router = createBrowserRouter([
   {
     path: "/registrar-saida/:id",
     element: <CheckOutPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/caixa/:type",
+    element: <CashRegister />,
     errorElement: <NotFoundPage />,
   },
   {
