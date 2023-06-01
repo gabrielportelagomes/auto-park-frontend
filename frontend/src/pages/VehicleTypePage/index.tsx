@@ -61,7 +61,7 @@ export default function VehicleTypePage() {
       setIsLoading(false);
     }
   }
-  console.log(form);
+
   return (
     <Style.PageContainer>
       <Header />

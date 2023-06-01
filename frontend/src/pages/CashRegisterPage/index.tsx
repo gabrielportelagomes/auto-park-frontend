@@ -9,7 +9,7 @@ import * as Style from "./style";
 
 export default function CashRegisterPage() {
   const navigate = useNavigate();
-  const { cashBalance } = useCashBalance();
+  const { cashBalance, cashBalanceLoading } = useCashBalance();
   const { type } = useParams();
   const [transactionType, setTransactionType] = useState("");
 
@@ -23,17 +23,24 @@ export default function CashRegisterPage() {
     }
   }, []);
 
-  if (!cashBalance) {
+  if (cashBalanceLoading) {
     return <LoadingPage />;
   }
   return (
     <Style.PageContainer>
       <Header />
-
-      <CashHandling
-        cashItems={cashBalance}
-        transaction_type={transactionType}
-      />
+      {cashBalance ? (
+        <CashHandling
+          cashItems={cashBalance}
+          transaction_type={transactionType}
+        />
+      ) : (
+        <Style.Container>
+          <Style.EmptyTitle>
+            Você precisa ter ao menos uma moeda/nota registrada
+          </Style.EmptyTitle>
+        </Style.Container>
+      )}
     </Style.PageContainer>
   );
 }

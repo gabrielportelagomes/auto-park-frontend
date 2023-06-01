@@ -20,7 +20,7 @@ interface FormData {
 
 export default function CheckInPage() {
   const navigate = useNavigate();
-  const { allVehicleTypes } = useAllVehicleTypes();
+  const { allVehicleTypes, allVehicleTypesLoading } = useAllVehicleTypes();
   const { vehicleRegisterLoading, postVehicleRegister } =
     useSaveVehicleRegister();
   const [isLoading, setIsLoading] = useState(false);
@@ -28,15 +28,20 @@ export default function CheckInPage() {
     plate_number: "",
   });
 
-  if (!allVehicleTypes) {
+  if (allVehicleTypesLoading) {
     return <LoadingPage />;
   }
-  const vehicleTypes = allVehicleTypes.map(
-    ({ id, vehicle_type }: { id: number; vehicle_type: string }) => ({
-      id,
-      label: vehicle_type,
-    })
-  );
+
+  let vehicleTypes = [];
+
+  if (allVehicleTypes && allVehicleTypes.length !== 0) {
+    vehicleTypes = allVehicleTypes.map(
+      ({ id, vehicle_type }: { id: number; vehicle_type: string }) => ({
+        id,
+        label: vehicle_type,
+      })
+    );
+  }
 
   const onFormChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (event.target.name === "vehicle_type_id") {
@@ -77,37 +82,45 @@ export default function CheckInPage() {
   return (
     <Style.PageContainer>
       <Header />
-      <Style.Form onSubmit={submit}>
-        <InputForm
-          label="Placa do veículo"
-          id="plate_number"
-          name="plate_number"
-          value={form.plate_number}
-          onChange={onFormChange}
-          type="text"
-          placeholder="Ex: H9BR75D"
-          disabled={isLoading || vehicleRegisterLoading}
-          minLength={7}
-          autoComplete="off"
-          required
-        />
-        <RadioInput
-          label="Tipo de veículo:"
-          id="vehicle_type"
-          name="vehicle_type_id"
-          value={form.vehicle_type_id}
-          onChange={onFormChange}
-          options={vehicleTypes}
-          disabled={isLoading || vehicleRegisterLoading}
-          required
-        />
-        <ButtonForm
-          type="submit"
-          disabled={isLoading || vehicleRegisterLoading}
-        >
-          {isLoading || vehicleRegisterLoading ? loadingButton : "Registrar"}
-        </ButtonForm>
-      </Style.Form>
+      {allVehicleTypes ? (
+        <Style.Form onSubmit={submit}>
+          <InputForm
+            label="Placa do veículo"
+            id="plate_number"
+            name="plate_number"
+            value={form.plate_number}
+            onChange={onFormChange}
+            type="text"
+            placeholder="Ex: H9BR75D"
+            disabled={isLoading || vehicleRegisterLoading}
+            minLength={7}
+            autoComplete="off"
+            required
+          />
+          <RadioInput
+            label="Tipo de veículo:"
+            id="vehicle_type"
+            name="vehicle_type_id"
+            value={form.vehicle_type_id}
+            onChange={onFormChange}
+            options={vehicleTypes}
+            disabled={isLoading || vehicleRegisterLoading}
+            required
+          />
+          <ButtonForm
+            type="submit"
+            disabled={isLoading || vehicleRegisterLoading}
+          >
+            {isLoading || vehicleRegisterLoading ? loadingButton : "Registrar"}
+          </ButtonForm>
+        </Style.Form>
+      ) : (
+        <Style.Container>
+          <Style.EmptyTitle>
+            Você precisa ter ao menos um tipo de veículo registrado
+          </Style.EmptyTitle>
+        </Style.Container>
+      )}
     </Style.PageContainer>
   );
 }
