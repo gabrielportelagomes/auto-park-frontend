@@ -1,5 +1,5 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import dayjs from "dayjs";
 
@@ -10,9 +10,9 @@ import useRegistersByDate from "../../hooks/api/useRegistersByDate";
 import VehicleRegisters from "../../components/VehicleRegisters";
 
 export default function RegistersByDatePage() {
-  const navigate = useNavigate();
   const { getRegistersByDate, registersByDate } = useRegistersByDate();
   const { date } = useParams();
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (date === "hoje") {
@@ -27,25 +27,31 @@ export default function RegistersByDatePage() {
   async function getRegisters(date: string) {
     try {
       await getRegistersByDate(date);
+      setLoading(false);
     } catch (error: any) {
       if (error.response.data.message) {
         toast.error(error.response.data.message);
-        navigate("/*");
       } else {
         toast.error("Não foi possível recuperar os registros!");
-        navigate("/inicio");
       }
+      setLoading(false);
     }
   }
 
-  if (!registersByDate) {
+  if (loading) {
     return <LoadingPage />;
   }
 
   return (
     <Style.PageContainer>
       <Header />
-      <VehicleRegisters registersByDate={registersByDate} date={true} />
+      {registersByDate ? (
+        <VehicleRegisters registersByDate={registersByDate} date={true} />
+      ) : (
+        <Style.Container>
+          <Style.EmptyTitle>Nenhum registro foi encontrado</Style.EmptyTitle>
+        </Style.Container>
+      )}
     </Style.PageContainer>
   );
 }
