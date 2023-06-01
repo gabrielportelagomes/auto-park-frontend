@@ -7,17 +7,17 @@ import useCashBalance from "../../hooks/api/useCashBalance";
 import * as Style from "./style";
 
 export default function HomePage() {
-  const { cashBalance } = useCashBalance();
-  const { activeRegisters } = useActiveRegisters();
+  const { cashBalance, cashBalanceLoading } = useCashBalance();
+  const { activeRegisters, activeRegistersLoading } = useActiveRegisters();
 
-  if (!cashBalance || !activeRegisters) {
+  if (cashBalanceLoading || activeRegistersLoading) {
     return <LoadingPage />;
   }
 
   return (
     <Style.PageContainer>
       <Header />
-      <CashBalance cashBalance={cashBalance} />
+      {cashBalance && <CashBalance cashBalance={cashBalance} />}
       <ActiveVehicles activeRegisters={activeRegisters} />
     </Style.PageContainer>
   );

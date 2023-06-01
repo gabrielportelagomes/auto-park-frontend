@@ -40,11 +40,16 @@ export default function ActiveVehicles({
         <Style.CashIcon></Style.CashIcon>
         <Style.Title>Registros ativos:</Style.Title>
       </Style.Top>
-      <Style.Content>
-        {activeRegisters.map((register) => {
-          return <Register key={register.id} {...register} />;
-        })}
-      </Style.Content>
+      {activeRegisters ? (
+        <Style.Content>
+          {activeRegisters.map((register) => {
+            return <Register key={register.id} {...register} />;
+          })}
+        </Style.Content>
+      ) : (
+        <Style.Content>Nenhum registro ativo no estacionamento</Style.Content>
+      )}
+
       <Style.ButtonContainer>
         <Style.EntryButton onClick={() => navigate("/registrar-entrada")}>
           Registrar entrada
