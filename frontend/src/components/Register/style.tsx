@@ -10,22 +10,29 @@ export const Container = styled.div`
   border-radius: 0.5rem;
   padding: 0.5rem 0.3rem;
   margin-top: 0.5rem;
-  position: relative;
 
   @media ${device.tablet} {
     max-width: 40rem;
   }
 `;
 
-export const Title = styled.h3`
+export const Title = styled.div`
   width: 100%;
-  font-size: 1.3rem;
-  font-weight: 700;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 0.5rem;
 
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
   @media ${device.desktop} {
-    font-size: 1.5rem;
+    h3 {
+      font-size: 1.5rem;
+    }
   }
 `;
 
@@ -61,7 +68,24 @@ export const Circle = styled.div`
   border-radius: 50%;
   background-color: lightgreen;
   animation: ${blinkAnimation} 1s infinite alternate;
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
+`;
+
+export const ExitButton = styled.button<{ display: string | null }>`
+  width: 100%;
+  height: 1.5rem;
+  display: ${(props) => (props.display === null ? "flex" : "none")};
+  justify-content: center;
+  align-items: center;
+  background: #800;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 1rem;
+
+  @media ${device.desktop} {
+    height: 1.7rem;
+    font-size: 1.2rem;
+  }
 `;
