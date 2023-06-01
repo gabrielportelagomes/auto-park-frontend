@@ -9,3 +9,26 @@ export async function getBalance(token: string | null) {
 
   return response.data;
 }
+
+export interface CashDetails {
+  cash_item_id: number;
+  quantity: number;
+  amount: number;
+  transaction_type: string;
+}
+
+export interface ChangeDetails {
+  total_price: number;
+  total_paid: number;
+  cash_register: CashDetails[];
+}
+
+export async function postChange(token: string | null, body: ChangeDetails) {
+  const response = await api.post("/cash-register/change", body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return response.data;
+}
