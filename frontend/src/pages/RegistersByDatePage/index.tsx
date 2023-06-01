@@ -9,7 +9,7 @@ import * as Style from "./style";
 import useRegistersByDate from "../../hooks/api/useRegistersByDate";
 import VehicleRegisters from "../../components/VehicleRegisters";
 
-export default function RegistersByDate() {
+export default function RegistersByDatePage() {
   const navigate = useNavigate();
   const { getRegistersByDate, registersByDate } = useRegistersByDate();
   const { date } = useParams();

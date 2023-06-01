@@ -31,11 +31,17 @@ export default function Header() {
       </Style.HamburguerMenu>
       {hamburguerMenuOpen && (
         <Style.Menu>
+          <Style.MenuItem onClick={() => navigate("/caixa/item")}>
+            Caixa - registrar moeda
+          </Style.MenuItem>
           <Style.MenuItem onClick={() => navigate("/caixa/entrada")}>
             Caixa - registrar entrada
           </Style.MenuItem>
           <Style.MenuItem onClick={() => navigate("/caixa/saida")}>
             Caixa - registrar saída
+          </Style.MenuItem>
+          <Style.MenuItem onClick={() => navigate("/veiculo/tipo")}>
+            Veículos - registrar tipo
           </Style.MenuItem>
           <Style.MenuItem onClick={() => navigate("/registrar-entrada")}>
             Veículos - registrar entrada
@@ -43,7 +49,9 @@ export default function Header() {
           <Style.MenuItem onClick={() => navigate("/registros/hoje")}>
             Veículos - registros do dia
           </Style.MenuItem>
-
+          <Style.MenuItem onClick={() => navigate("/registros-historico")}>
+            Veículos - hitórico
+          </Style.MenuItem>
           <Style.MenuItem onClick={logOut}>Sair</Style.MenuItem>
         </Style.Menu>
       )}

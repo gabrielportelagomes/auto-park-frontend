@@ -4,7 +4,7 @@ import * as Style from "./style";
 import VehicleRegisters from "../../components/VehicleRegisters";
 import useAllVehicleRegisters from "../../hooks/api/useAllVehicleRegisters";
 
-export default function RegistersHistory() {
+export default function RegistersHistoryPage() {
   const { allVehicleRegisters } = useAllVehicleRegisters();
 
   if (!allVehicleRegisters) {
