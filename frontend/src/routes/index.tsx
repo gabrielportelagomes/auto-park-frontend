@@ -10,6 +10,7 @@ import CheckOutPage from "../pages/CheckOutPage";
 import CashRegisterPage from "../pages/CashRegisterPage";
 import RegistersHistoryPage from "../pages/RegistersHistoryPage";
 import CashItemPage from "../pages/CashItemPage";
+import VehicleTypePage from "../pages/VehicleTypePage";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,11 @@ export const router = createBrowserRouter([
   {
     path: "/caixa/item",
     element: <CashItemPage />,
+    errorElement: <NotFoundPage />,
+  },
+  {
+    path: "/veiculo/tipo",
+    element: <VehicleTypePage />,
     errorElement: <NotFoundPage />,
   },
   {

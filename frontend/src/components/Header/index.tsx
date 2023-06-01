@@ -40,6 +40,9 @@ export default function Header() {
           <Style.MenuItem onClick={() => navigate("/caixa/saida")}>
             Caixa - registrar saída
           </Style.MenuItem>
+          <Style.MenuItem onClick={() => navigate("/veiculo/tipo")}>
+            Veículos - registrar tipo
+          </Style.MenuItem>
           <Style.MenuItem onClick={() => navigate("/registrar-entrada")}>
             Veículos - registrar entrada
           </Style.MenuItem>
