@@ -10,7 +10,7 @@ export interface UserKeyContextType {
 const UserContext = createContext<UserKeyContextType>({
   userData: null,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setUserData: (userData: string | null) => {},
+  setUserData: () => {},
 });
 
 export default UserContext;
