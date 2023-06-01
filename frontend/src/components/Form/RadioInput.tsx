@@ -3,7 +3,7 @@ import React from "react";
 import * as Style from "./style";
 
 interface RadioOption {
-  id: number;
+  id: number | string;
   label: string;
 }
 
@@ -11,7 +11,7 @@ interface RadioInputProps {
   label: string;
   id: string;
   name: string;
-  value?: number;
+  value?: number | string;
   options: RadioOption[];
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
