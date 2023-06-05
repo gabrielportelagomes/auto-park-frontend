@@ -50,7 +50,6 @@ export default function CheckOutPage() {
   if (!cashBalance || !updateVehicleRegister) {
     return <LoadingPage />;
   }
-  console.log(updateVehicleRegister);
 
   return (
     <Style.PageContainer>
