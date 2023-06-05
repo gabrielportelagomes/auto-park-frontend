@@ -50,12 +50,21 @@ export default function CheckOutPage() {
   if (!cashBalance || !updateVehicleRegister) {
     return <LoadingPage />;
   }
+  console.log(updateVehicleRegister);
 
   return (
     <Style.PageContainer>
       <Header />
       <Style.Content>
-        <Style.Title>Valor a pagar:</Style.Title>
+        <Style.Title>
+          Valor a pagar
+          {updateVehicleRegister.paid_amount ===
+          updateVehicleRegister.VehicleType.hour_hate ? (
+            <> (valor mínimo):</>
+          ) : (
+            <>:</>
+          )}
+        </Style.Title>
         <Style.TotalAmount>
           {(updateVehicleRegister.paid_amount / 100).toLocaleString("pt-br", {
             style: "currency",
