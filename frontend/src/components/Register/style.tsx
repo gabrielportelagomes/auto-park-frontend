@@ -43,11 +43,15 @@ export const Type = styled.div`
   line-height: 1.5rem;
 `;
 
-export const EntryTime = styled.div`
+export const Infos = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 1rem;
   line-height: 1.5rem;
+
+  span {
+    font-weight: 700;
+  }
 `;
 
 const blinkAnimation = keyframes`

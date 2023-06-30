@@ -27,11 +27,27 @@ export default function Register(register: RegisterProps) {
         <p>Tipo:</p>
         <p>{register.VehicleType.vehicle_type}</p>
       </Style.Type>
-      <Style.EntryTime>
+      <Style.Infos>
         <p>Entrada:</p>
         <p>{dayjs(register.entry_time).format("DD/MM/YYYY HH:mm:ss")}</p>
-      </Style.EntryTime>
-
+      </Style.Infos>
+      {register.exit_time && (
+        <Style.Infos>
+          <p>Saída:</p>
+          <p>{dayjs(register.exit_time).format("DD/MM/YYYY HH:mm:ss")}</p>
+        </Style.Infos>
+      )}
+      {register.paid_amount && (
+        <Style.Infos>
+          <span>Total:</span>
+          <span>
+            {(register.paid_amount / 100).toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </span>
+        </Style.Infos>
+      )}
       <Style.ExitButton
         onClick={() => setIsOpen(true)}
         display={register.exit_time}
